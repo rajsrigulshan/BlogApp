@@ -5,6 +5,14 @@ import Logo from "./Logo.jsx";
 import LogoutBtn from "./header/LogoutBtn.jsx";
 import Input from "./Input.jsx";
 import RTE from "./RTE.jsx";
+import Signup from "./Signup.jsx";
+import Select from "./Select.jsx";
+import Login from "./Login.jsx";
+import PostForm from "./post-form/PostForm.jsx";
+import PostCard from "./PostCard.jsx"
+import AuthLayout from "./AuthLayout.jsx";
+import Button from "./Button.jsx"
+
 
 export {
     Header,
@@ -13,5 +21,13 @@ export {
     Logo,
     LogoutBtn,
     Input,
-    RTE
+    RTE,
+    Signup,
+    Select,
+    Login,
+    PostCard,
+    PostForm,
+    AuthLayout,
+    Button
+
 }
