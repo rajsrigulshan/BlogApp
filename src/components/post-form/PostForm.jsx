@@ -1,3 +1,4 @@
+import React from "react";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import {Button,Input,RTE} from "../index";
@@ -9,7 +10,7 @@ import Select from "../Select";
 
 // @TODO: check slug flow...
 function PostForm({post}){
-    const {register,handleSubmit,watch,setValue}=useForm({
+    const {register,handleSubmit,watch,setValue,control,getValues}=useForm({
         defaultValues:{
             title:post?.title||'',
             slug:post?.slug||'',
@@ -19,7 +20,7 @@ function PostForm({post}){
     });
 
     const navigate=useNavigate();
-    const userData=useSelector(state=>state.user.userData);
+    const userData=useSelector((state)=>state.auth.userData);
 
     const submit=async (data)=>{
         if(post){
@@ -52,11 +53,11 @@ function PostForm({post}){
                 return value
                         .trim()
                         .toLowerCase()
-                        .replace(/^[a-zA-Z\d\s]+/g,'-')
+                        .replace(/[^a-zA-Z\d\s]+/g,'-')
                         .replace(/\s/g,'-')
-            return '';
+            return "";
 
-    })
+    },[])
 
     React.useEffect(()=>{
         const subscription=watch((value,{name})=>{

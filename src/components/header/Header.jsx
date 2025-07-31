@@ -11,28 +11,28 @@ function Header() {
 
     const navItems = [
         {
-            name: Home,
+            name: "Home",
             url: "/",
-            active: true
+            active: true,
         },
         {
             name: "Login",
-            slug: "/login",
+            url: "/login",
             active: !authStatus,
         },
         {
             name: "Signup",
-            slug: "/signup",
+            url: "/signup",
             active: !authStatus,
         },
         {
             name: "All Posts",
-            slug: "/all-posts",
+            url: "/all-posts",
             active: authStatus,
         },
         {
             name: "Add Post",
-            slug: "/add-post",
+            url: "/add-post",
             active: authStatus,
         },
     ];

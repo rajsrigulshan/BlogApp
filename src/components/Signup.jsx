@@ -2,7 +2,7 @@ import { useState } from "react";
 import authService from "../appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
-import { Button, Input, Logo } from "./index"
+import { Button, Input, Logo } from "./index.js"
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
@@ -16,6 +16,7 @@ function Signup() {
     const create = async (data) => {
         setError("");
         try {
+            console.log("create account clicked....")
             const signupData = await authService.createAccount(data);
             if (signupData) {
                 const userData = await authService.getCurrentUser();
@@ -63,7 +64,7 @@ function Signup() {
                             {...register("email", {
                                 required: true,
                                 validate: {
-                                    matchPatern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/
+                                    matchPatern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
                                         .test(value) || "Enter a valid email address"
                                 }
                             })}
@@ -75,7 +76,7 @@ function Signup() {
                             {...register("password", { required: true })}
                         />
 
-                        <Button className="w-full" type="submmit">Create Account</Button>
+                        <Button type="submit" className="w-full">Create Account</Button>
 
                     </div>
                 </form>
