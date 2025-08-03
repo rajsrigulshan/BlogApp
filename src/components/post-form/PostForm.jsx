@@ -13,7 +13,7 @@ function PostForm({post}){
     const {register,handleSubmit,watch,setValue,control,getValues}=useForm({
         defaultValues:{
             title:post?.title||'',
-            slug:post?.slug||'',
+            slug:post?.$id||'',
             content:post?.content||'',
             status:post?.status||'active'
         }
@@ -36,7 +36,8 @@ function PostForm({post}){
             }
         }
         else{
-            const file=await data.image[0]?appwriteService.uploadFile(data.image[0]):null;
+            // const file=await data.image[0]?appwriteService.uploadFile(data.image[0]):null;
+            const file=await appwriteService.uploadFile(data.image[0]);
             if(file){
                 const fileId=file.$id;
                 data.featuredImage=fileId;

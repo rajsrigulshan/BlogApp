@@ -120,7 +120,13 @@ export class Service {
     }
 
     getFilePreview(fileId){
-        return this.storage.getFilePreview(
+
+        //  @raj  for image transformation I need to upgrade my plan
+        // return this.storage.getFilePreview(
+        //     conf.appwriteBucketId,
+        //     fileId
+        // );
+        return this.storage.getFileView(
             conf.appwriteBucketId,
             fileId
         );
