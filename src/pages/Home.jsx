@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
 import appwriteService from "../appwrite/config"
-import { Container,PostCard } from "../components";
+import { Container,PostCard } from "../components/index.js";
 
 
 function Home(){
@@ -10,7 +10,8 @@ function Home(){
                 appwriteService.getPosts()
                                .then((posts)=>{
                                     if(posts){
-                                        setPosts(posts);
+                                        console.log("Posts: ",posts);
+                                        setPosts(posts.documents);
                                     }
                                 })
     },[]);
@@ -34,7 +35,7 @@ function Home(){
         <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
-                    {Array.isArray(posts) && posts?.map((post) => (
+                    {Array.isArray(posts) && posts.map((post) => (
                         <div key={post.$id} className='p-2 w-1/4'>
                             <PostCard {...post} />
                         </div>
@@ -42,6 +43,7 @@ function Home(){
                 </div>
             </Container>
         </div>
+        
     )
 
 }
