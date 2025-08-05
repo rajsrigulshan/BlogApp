@@ -12,6 +12,7 @@ import PostForm from "./post-form/PostForm.jsx";
 import PostCard from "./PostCard.jsx"
 import AuthLayout from "./AuthLayout.jsx";
 import Button from "./Button.jsx"
+import Spinner from "./Spinner.jsx";
 
 
 export {
@@ -28,6 +29,7 @@ export {
     PostCard,
     PostForm,
     AuthLayout,
-    Button
+    Button,
+    Spinner
 
 }

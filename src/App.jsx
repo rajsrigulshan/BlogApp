@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import authService from './appwrite/auth.js';
 import {login,logout} from './store/authSlice.js';
-import {Header,Footer} from './components'
+import {Header,Footer, Spinner} from './components'
 import './App.css'
 import { Outlet } from 'react-router-dom';
 
@@ -31,13 +31,19 @@ function App() {
           <Outlet/>
         </main>
         <Footer/>
-
       </div>
     </div>  
 
     
  );
- else return ( <h1 className='mt-100  text-center text-3xl text-red-500'>Loading...</h1> );
+else return (
+        <div className='bg-gray-500 flex flex-col items-center justify-center min-h-screen w-full'>
+          <Spinner/>
+            <div className="text-white text-2xl mt-2 text-center">
+                Loading...
+            </div>
+        </div>
+);
 }
 
 export default App
